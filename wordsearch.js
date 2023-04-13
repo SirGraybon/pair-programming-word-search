@@ -1,54 +1,60 @@
 const wordSearch = (letters, word) => {
-  const horizontalJoin = letters.map(ls => ls.join('')); //ls is each singular array
-  // console.log(horizontalJoin); // this works
+  //checks horizontal words
+  const horizontalJoin = letters.map(ls => ls.join(''));
   for (l of horizontalJoin) {
     if (l.includes(word) || l.split("").reverse().join("").includes(word)) {
       console.log("horizontal true");
-      //return true
+      return true;
     }
   }
   // checks vertical words
-
-
   for (let i = 0; i < letters[i].length; i++) {
     let verticalJoin = "";
     for (let j = 0; j < letters.length; j++) {
       verticalJoin += (letters[j][i]);
-        }
+    }
     if (verticalJoin.includes(word)) {
       console.log("vertical true");
-      //return true;
-
+      return true;
     }
   }
 
-//Checks diagonal words :(
-  //we need:
-  // index to increment ++ for each subsequent array
-  // e.g. 
 
-// crazy idea
+  // first diagonal "South East"
+  // console.log(letters);
+  // let n = 0;
+  // diagWordBank = [];
+  // let loops = letters.length - 1;
+  // console.log(loops);
+  // for (let i = 0; i < letters[0].length; i++) {
+  //   let newWord = "";
+  //   let newWord2 = "";
+  //   let c = 0;
+  //   for (let j = loops - n; j < letters.length; j++) {
+  //     newWord += letters[j][c];
+  //     if (letters[c][j] === undefined) {
+  //       continue;
+  //     }
+  //     newWord2 += letters[c][j];
+  //     c++;
+  //   }
+  //   n++;
+  //   diagWordBank.push(newWord);
+  //   diagWordBank.push(newWord2);
 
-// for (let i = letters[i].length; i >= 0; i--) {
-//     let diagJoin = "";
-//     console.log('first loop prints', letters[i]);
-//     for (let j = 0; j < letters[j].length; j++) {
-//       console.log('second loop prints', letters[j]);
-//     }
-    //console.log(diagJoin)
+  // }
+  
+  
+  
+  // if (diagWordBank.includes(word)) {
+  //   console.log("1: ", diagWordBank);
+  //   return true;
+  // }
 
-    
-    
-    
-    
-    //First loop (TOP HALF)
-    //looping through I (outer array)
-    //Start (0,9) (length-1)
-    //Final iteration of the loop begins (0,0)
-    
-    //Second Loop (Bottom Half)
-    //first position (0,0)
-    //final iteration of the loop (9,0)
+
+
+  //console.log("2: ", newWord2)
+
 
 
   return false;
@@ -59,6 +65,8 @@ const wordSearch = (letters, word) => {
 
 
 module.exports = wordSearch;
+
+//// notes /////
 
 
 //map
@@ -114,5 +122,5 @@ wordSearch([
   ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
   ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
   ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-], 'AECTY');
+], 'FFURL');
 
